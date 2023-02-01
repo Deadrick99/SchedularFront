@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BASE_URL = "https://www.schedularback-production.up.railway.app"
+const BASE_URL = "https://schedularback-production.up.railway.app"
 
 export default axios.create({
     baseURL:BASE_URL

@@ -1,16 +1,17 @@
-import { useRef, useState, useEffect} from "react";
-import useAuth  from "../hooks/useAuth";
-import {Link, useNavigate, useLocation, } from 'react-router-dom'
+import { useRef, useState, useEffect, useContext} from "react";
+import { useNavigate, useLocation, } from 'react-router-dom'
 import axios from '../api/axios'
 import "../../dist/output.css";
-import useInput from "../hooks/useInput";
-import useToggle from "../hooks/useToggle";
+import useInput from "../Hooks/useInput";
+import useToggle from "../Hooks/useToggle";
+import useAuth from "../Hooks/useAuth";
+
 const LOGIN_URL = "/auth"
 
 
 
 function Login() {
-  const {setAuth} = useAuth()
+  const { setAuth }= useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,7 +21,7 @@ function Login() {
   const errRef = useRef();
 
 
-  const [userName, resetUserName, userNameAttributeObj] = useInput("user",'')
+  const [userName, resetUserName, userNameAttributeObj] = useInput("userName",'')
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
@@ -28,26 +29,27 @@ function Login() {
 
     useEffect(() => {
         setErrMsg("")
-    },[user,pwd])
+    },[userName,password])
     useEffect(()=>{
         userRef.current.focus()
     },[])
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response =await  axios.post (LOGIN_URL,json.stringify({userName,password}),
+            const response =await  axios.post (LOGIN_URL,JSON.stringify({userName,password}),
             {headers:{'Content-Type':'application/json'}, withCredentails:true})
-            console.log(response)
+            console.log(response?.data)
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({userName,password,roles,accessToken})
-            resetUserName()
+            setAuth({userName,password,roles,accessToken});
+            resetUserName("")
             setPassword("")
             navigate(from,{replace:true})
         } catch (error) {
+          console.log(error)
             if(!error?.response)
-            setErrMsg("Nor response from server")
-            else if(error.respons?.status === 400 )
+            setErrMsg("No response from server")
+            else if(error.response?.status === 400 )
             setErrMsg("Incoorect Username or Password. Try Agian.")
             else
             setErrMsg("Login Failed.")
@@ -56,9 +58,55 @@ function Login() {
     }
 
   return (
-    <div>
-      
-    </div>
+        <section className="border-gray-200 bg-gray-50 h-screen w-full dark:bg-gray-800 dark:border-gray-700'
+         dark:text-white flex flex-col  m-auto items-center justify-center">
+          <p
+            ref={errRef}
+            className={errMsg ? "bg-red-500" : "hidden"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
+          <h1 className="m-3 font-semibold text-xl">Sign In</h1>
+          <form onSubmit={handleSubmit} className="flex flex-col my-2">
+            <label htmlFor="username" className="mb-2">Username:</label>
+            <input className="mb-1 rounded-sm text-black"
+              type="text"
+              id="username"
+              ref={userRef}
+              autoComplete="off"
+              {...userNameAttributeObj}
+              required
+            />
+            <label className="mt-2" htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+              className="my-1 rounded-sm text-black"
+            />
+            <button className="dark:text-gray-800 dark:bg-white my-3 font-semibold rounded-xl">Sign In</button>
+            <div className= "text-white">
+              <input  type="checkbox"
+              id= "persist"
+              onChange= {toggleCheck}
+              checked= {check}
+              />
+              <label htmlFor="persist" className="text-white ml-2">Trust this device</label>
+            </div>
+            <p className="">
+              Need an account?
+              <br />
+              <span>
+                <a className="underline " href="#">
+                  Sign up
+                </a>
+              </span>
+            </p>
+          </form>
+        </section>
   )
 }
 

@@ -8,9 +8,11 @@ const useInput = (key,initValue) => {
     }
 
     const attributeObj = {
+        
         value,onChange:(e) => setValue(e.target.value)
     }
+    
     return [value,reset, attributeObj]
 }
 
-export default useInp
+export default useInput
