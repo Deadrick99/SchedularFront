@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import { Routes,Route } from 'react-router'
 import "../dist/output.css"
 import Login from './components/Login'
+import Register from './components/Register'
 function App() {
   
   return (
@@ -13,6 +14,7 @@ function App() {
     <Navbar/>
     <Routes>
     <Route path='login' element={<Login/>}/>
+    <Route path ="register" element={<Register/>}/>
     </Routes>
     <Footer/>
    </div>

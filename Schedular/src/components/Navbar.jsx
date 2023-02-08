@@ -12,7 +12,7 @@ function Navbar() {
     useNavbar("hidden")
   }
   return (
-    <nav className='p-3 w-full border-gray-200 bg-gray-50 fixed dark:bg-gray-800 dark:border-gray-700'>
+    <nav className='p-3 h-16 w-full border-gray-200 bg-gray-50 sticky top-0 dark:bg-gray-800 dark:border-gray-700'>
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
         <a href='#' className='flex items-center'>
           <span className='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'><MdSchedule/></span>

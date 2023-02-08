@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext} from "react";
-import { useNavigate, useLocation, } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import axios from '../api/axios'
 import "../../dist/output.css";
 import useInput from "../Hooks/useInput";
@@ -100,9 +100,9 @@ function Login() {
               Need an account?
               <br />
               <span>
-                <a className="underline " href="#">
+                <Link className="underline " to={"/register"}>
                   Sign up
-                </a>
+                </Link>
               </span>
             </p>
           </form>
