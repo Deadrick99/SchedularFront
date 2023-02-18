@@ -43,7 +43,7 @@ function Login() {
         event.preventDefault();
         try {
             const response =await  axiosPrivate.post ("https://schedularback-production.up.railway.app/auth",JSON.stringify({userName,password}),
-            {headers:{'Content-Type':'application/json'}, withCredentails:true})
+            {headers:{'Content-Type':'application/json'}, withCredentials:true})
             console.log(response?.data)
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
