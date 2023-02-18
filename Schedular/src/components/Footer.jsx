@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../dist/output.css"
+import "../output.css"
 function Footer() {
   return (
     <span className='h-10 w-full screen sticky bottom-0 bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-700

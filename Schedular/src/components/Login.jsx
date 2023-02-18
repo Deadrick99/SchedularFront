@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useContext} from "react";
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import axios, { axiosPrivate } from '../api/axios'
-import "../../dist/output.css";
+import "../output.css"
 import useInput from "../Hooks/useInput";
 import useToggle from "../Hooks/useToggle";
 import useAuth from "../Hooks/useAuth";

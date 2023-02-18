@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import "../../dist/output.css"
+import "../output.css"
 import axios from '../api/axios';
 import useAxiosPrivate  from '../Hooks/useAxiosPrivate';
 import useAuth from "../Hooks/useAuth";

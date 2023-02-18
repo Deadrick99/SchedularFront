@@ -2,7 +2,7 @@ import {useRef,useState, useEffect} from "react";
 import { useNavigate,useLocation} from "react-router";
 import {Link} from "react-router-dom"
 import axios from "../api/axios";
-import "../../dist/output.css"
+import "../output.css"
 
 const REGISTER_URL = '/register'
 const STORE_URL = '/store'

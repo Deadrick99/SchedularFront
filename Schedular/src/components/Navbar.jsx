@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../dist/output.css"
+import "../output.css"
 import {MdSchedule,} from "react-icons/md"
 import {GiHamburgerMenu} from "react-icons/gi"
 import { useState } from "react"
