@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useContext} from "react";
 import { useNavigate, useLocation, Link } from 'react-router-dom'
-import axios from '../api/axios'
+import axios, { axiosPrivate } from '../api/axios'
 import "../../dist/output.css";
 import useInput from "../Hooks/useInput";
 import useToggle from "../Hooks/useToggle";
@@ -11,7 +11,7 @@ const LOGIN_URL = "/auth"
 
 
 function Login() {
-  const { setAuth }= useAuth();
+  const { setAuth, persist, setPersist }= useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,15 +33,23 @@ function Login() {
     useEffect(()=>{
         userRef.current.focus()
     },[])
+    useEffect(()=> {
+      localStorage.setItem("persist", persist)
+    },[persist])
+    const togglePersist = () =>{
+      setPersist(prev => !prev)
+    }
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response =await  axios.post (LOGIN_URL,JSON.stringify({userName,password}),
+            const response =await  axiosPrivate.post ("https://schedularback-production.up.railway.app/auth",JSON.stringify({userName,password}),
             {headers:{'Content-Type':'application/json'}, withCredentails:true})
             console.log(response?.data)
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
-            setAuth({userName,password,roles,accessToken});
+            const id = response?.data?.id
+            
+            setAuth({userName,password,roles,accessToken,id});
             resetUserName("")
             setPassword("")
             navigate(from,{replace:true})
@@ -58,7 +66,7 @@ function Login() {
     }
 
   return (
-        <section className="border-gray-200 bg-gray-50 h-screen w-full dark:bg-gray-800 dark:border-gray-700'
+        <section className="border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700'
          dark:text-white flex flex-col  m-auto items-center justify-center">
           <p
             ref={errRef}
@@ -91,8 +99,8 @@ function Login() {
             <div className= "text-white">
               <input  type="checkbox"
               id= "persist"
-              onChange= {toggleCheck}
-              checked= {check}
+              onChange= { togglePersist}
+              checked= {persist}
               />
               <label htmlFor="persist" className="text-white ml-2">Trust this device</label>
             </div>

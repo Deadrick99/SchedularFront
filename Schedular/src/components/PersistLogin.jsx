@@ -9,8 +9,8 @@ import React from "react";
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
   const refresh = useRefreshToken();
-  const { auth } = useAuth();
-  const [persist] = useLocalStorage('persist', false)
+  const { auth,persist } = useAuth();
+
 
   useEffect(() => {
     let isMounted = true;
