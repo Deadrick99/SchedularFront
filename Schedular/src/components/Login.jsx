@@ -48,8 +48,9 @@ function Login() {
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
             const id = response?.data?.id
-            
-            setAuth({userName,password,roles,accessToken,id});
+            if(id)
+            localStorage.setItem("id", id)
+            setAuth({userName,password,roles,accessToken});
             resetUserName("")
             setPassword("")
             navigate(from,{replace:true})

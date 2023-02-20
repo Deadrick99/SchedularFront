@@ -5,11 +5,13 @@ import useAxiosPrivate  from '../Hooks/useAxiosPrivate';
 import useAuth from "../Hooks/useAuth";
 import {MdEdit} from "react-icons/md"
 import useRefreshToken from '../Hooks/useRefreshToken';
+import {VscLoading} from "react-icons/vsc"
 var availArr;
 function Availability() {
    const {refresh} = useRefreshToken()
     const axiosPrivate = useAxiosPrivate()
     const {auth} = useAuth()
+    const [isLoading, setIsLoading] = useState(true)
     //constants for option map
      const availibityArr = ["OPEN", "10AM", "11AM","12PM","1PM", "2PM","3PM","4PM", "5PM", "6PM","7PM", "8PM","CLOSE","OFF"]
      //hash table for logic in validation
@@ -260,23 +262,28 @@ function Availability() {
     }
     // page load hook checks if user has valid avail 
     useEffect( () => {
+        setIsLoading(true)
             async function fetchData(){
-                const id = auth?.id
+                const id = localStorage.getItem("id")
+                console.log(id)
                 const user = await axiosPrivate.get(`https://schedularback-production.up.railway.app/employees/${id}`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
+                console.log(user)
                 setAvailSet( user.data.availSet)
-                if (availSet === false)
+                console.log(user.data.availSet)
+                if (user.data.availSet === false)
                     return
                 
                 availArr = await axiosPrivate.get (`https://schedularback-production.up.railway.app/employeeAvail/${id}`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
                 console.log(availArr)
                 setTimes(availArr.data)
-                
+                setIsLoading(false)
             }
             fetchData();
+            
         },[])
     // handles submit of the form 
     const handleSubmit = async (e) =>{
-        const id = auth?.id
+        const id = localStorage.getItem("id")
         e.preventDefault();
         submitMonday()
         submitTuesday()
@@ -312,7 +319,7 @@ function Availability() {
     }
     //functions to handle submitting days to backend
     const submitMonday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
          if (mondayEdit)
         {
@@ -338,7 +345,7 @@ function Availability() {
         }
     }
     const submitTuesday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
             console.log(tuesdayEdit)
         if (tuesdayEdit)
@@ -364,7 +371,7 @@ function Availability() {
         }
     }
     const submitWednesday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
         if (wednesdayEdit)
         {
@@ -389,7 +396,7 @@ function Availability() {
         }
     }
     const submitThursday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
         if (thursdayEdit)
         {
@@ -414,7 +421,7 @@ function Availability() {
         }
     }
     const submitFriday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
          if (fridayEdit)
         {
@@ -439,7 +446,7 @@ function Availability() {
         }
     }
     const submitSaturday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
          if (saturdayEdit)
         {
@@ -464,7 +471,7 @@ function Availability() {
         }
     }
     const submitSunday = async ()  =>{
-        const empId = auth?.id
+        const empId = localStorage.getItem("id")
         try{
         if (sundayEdit)
         {
@@ -490,10 +497,13 @@ function Availability() {
     }
 
   return (
-        <section className="border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700'
-         dark:text-white flex flex-col m-auto 
-    items-center justify-center"> 
-    
+  <div>
+    <section className={isLoading ? "border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center" : "hidden"} > 
+         <div className='animate-spin text-2xl'> <VscLoading/> </div>
+    </section>
+
+        <section className={!isLoading ?"border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center": "hidden"}> 
+         
          <h1 className=" text-center font-semibold text-xl">Availibility</h1>
             <form className="flex flex-col  my-2" onSubmit={handleSubmit}>
                
@@ -778,6 +788,7 @@ function Availability() {
                 
             </form>
     </section>
+    </div>
   )
 }
 

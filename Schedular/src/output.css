@@ -679,6 +679,16 @@ video {
   max-width: 100%;
 }
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
 .flex-row {
   flex-direction: row;
 }
