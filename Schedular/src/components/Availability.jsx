@@ -13,10 +13,11 @@ function Availability() {
     const {auth} = useAuth()
     const [isLoading, setIsLoading] = useState(true)
     //constants for option map
-     const availibityArr = ["OPEN", "10AM", "11AM","12PM","1PM", "2PM","3PM","4PM", "5PM", "6PM","7PM", "8PM","CLOSE","OFF"]
+     const availibityArr = ["OPEN","9AM","10AM", "11AM","12PM","1PM", "2PM","3PM","4PM", "5PM", "6PM","7PM", "8PM","CLOSE","OFF"]
      //hash table for logic in validation
     const availibilty= new Map([
     ["OPEN",-1],
+    ["9AM",0],
     ["10AM",1],
     ["11AM",2],
     ["12PM",3],
@@ -271,7 +272,10 @@ function Availability() {
                 setAvailSet( user.data.availSet)
                 console.log(user.data.availSet)
                 if (user.data.availSet === false)
+                {
+                setIsLoading(false)
                     return
+                }
                 
                 availArr = await axiosPrivate.get (`https://schedularback-production.up.railway.app/employeeAvail/${id}`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
                 console.log(availArr)
