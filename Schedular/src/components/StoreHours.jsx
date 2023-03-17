@@ -1,7 +1,5 @@
 import React from 'react'
-import{GrFormAdd, GrEdit} from "react-icons/gr"
-import {AiFillEdit,AiFillDelete} from "react-icons/ai"
-import {MdOutlineAdd} from "react-icons/md" 
+import {AiFillEdit} from "react-icons/ai"
 import "../output.css" 
 import { useState,useEffect } from 'react';
 

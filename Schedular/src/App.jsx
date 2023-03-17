@@ -8,7 +8,7 @@ import RequireAuth from "./components/requireAuth"
 import Availability from './components/Availability'
 import PersistLogin from './components/PersistLogin'
 import StoreHours from './components/StoreHours'
-import storeShifts from './components/storeShifts'
+import StoreShifts from './components/StoreShifts'
 function App() {
   
   return (
@@ -25,7 +25,7 @@ function App() {
           </Route>
           <Route element ={<RequireAuth allowedRoles={[2652]}/>}>
             <Route path='/storehours' element={<StoreHours/>}/>
-            <Route path='/storeshift' element={<storeShifts/>}></Route>
+            <Route path='/storeshifts' element={<StoreShifts/>}/>
           </Route>
         </Route>
       </Routes>
