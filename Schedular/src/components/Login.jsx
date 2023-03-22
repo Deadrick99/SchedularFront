@@ -71,8 +71,8 @@ function Login() {
     }
 
   return (
-        <section className="border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700'
-         dark:text-white flex flex-col  m-auto items-center justify-center">
+        <section className="min-h-screen w-full bg-gray-800 border-gray-700'
+         text-white flex flex-col  m-auto items-center justify-center">
           <p
             ref={errRef}
             className={errMsg ? "bg-red-500" : "hidden"}
@@ -100,7 +100,7 @@ function Login() {
               required
               className="my-1 rounded-sm text-black"
             />
-            <button className="dark:text-gray-800 dark:bg-white my-3 font-semibold rounded-xl">Sign In</button>
+            <button className="text-gray-800 bg-white my-3 font-semibold rounded-xl">Sign In</button>
             <div className= "text-white">
               <input  type="checkbox"
               id= "persist"

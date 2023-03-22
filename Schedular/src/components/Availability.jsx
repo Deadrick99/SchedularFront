@@ -502,11 +502,11 @@ function Availability() {
 
   return (
   <div>
-    <section className={isLoading ? "border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center" : "hidden"} > 
+    <section className={isLoading ? " min-h-screen w-full bg-gray-800 border-gray-700:text-white flex flex-col m-auto items-center justify-center" : "hidden"} > 
          <div className='animate-spin text-2xl'> <VscLoading/> </div>
     </section>
 
-        <section className={!isLoading ?"border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center": "hidden"}> 
+        <section className={!isLoading ?" min-h-screen w-full bg-gray-800 border-gray-700 text-white flex flex-col m-auto items-center justify-center": "hidden"}> 
          
          <h1 className=" text-center font-semibold text-xl">Availibility</h1>
             <form className="flex flex-col  my-2" onSubmit={handleSubmit}>

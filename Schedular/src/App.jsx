@@ -10,6 +10,7 @@ import PersistLogin from './components/PersistLogin'
 import StoreHours from './components/StoreHours'
 import StoreShifts from './components/storeShifts'
 import MakeSchedule from './components/MakeSchedule'
+import ComingSoon from './components/ComingSoon'
 function App() {
   
   return (
@@ -21,8 +22,9 @@ function App() {
         <Route path ="register" element={<Register/>}/>
         <Route element= {<PersistLogin/>}>
           <Route element={<RequireAuth allowedRoles={[6213]}/>}>
-            <Route path='/' element={<Layout/>}/>
+            <Route path='/' element={<ComingSoon/>}/>
             <Route path='/availability' element={<Availability/>}/>
+            <Route path='/comingsoon' element={<ComingSoon/>}></Route>
           </Route>
           <Route element ={<RequireAuth allowedRoles={[2652]}/>}>
             <Route path='/storehours' element={<StoreHours/>}/>

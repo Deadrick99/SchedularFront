@@ -333,13 +333,13 @@ function StoreHours() {
     }
   return (
    
-    <section className='border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center'>
+    <section className=' min-h-screen w-full bg-gray-800 border-gray-700 text-white flex flex-col m-auto items-center justify-center'>
         <h1 className='text-center font-semibold text-xl mb-8'>Store Hours</h1>
         <div className='flex flex-row justify-between w-3/4'>
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='mondayInfo'>Monday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setMondayAdd,mondayAdd, setShowMondayAdd,showMondayAdd)} disabled={editAction || action == true ? true :false} className={mondayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setMondayAdd,mondayAdd, setShowMondayAdd,showMondayAdd)} className={mondayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setMondayAdd,mondayAdd, setShowMondayAdd,showMondayAdd)} disabled={editAction || action == true ? true :false} className={mondayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setMondayAdd,mondayAdd, setShowMondayAdd,showMondayAdd)} className={mondayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>
@@ -356,8 +356,8 @@ function StoreHours() {
         <div className='flex flex-row justify-between w-3/4 mt-4'>
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='TuesdayInfo'>Tuesday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setTuesdayAdd,tuesdayAdd,setShowTuesdayAdd,showTuesdayAdd)} disabled={editAction || action == true ? true :false} className={tuesdayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setTuesdayAdd,tuesdayAdd,setShowTuesdayAdd,showTuesdayAdd)} className={tuesdayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setTuesdayAdd,tuesdayAdd,setShowTuesdayAdd,showTuesdayAdd)} disabled={editAction || action == true ? true :false} className={tuesdayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setTuesdayAdd,tuesdayAdd,setShowTuesdayAdd,showTuesdayAdd)} className={tuesdayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>
@@ -374,8 +374,8 @@ function StoreHours() {
         <div className='flex flex-row justify-between w-3/4 mt-4'>
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='WednesdayInfo'>Wednesday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setWednesdayAdd,wednesdayAdd, setShowWednesdayAdd,showWednesdayAdd)} disabled={editAction || action == true ? true :false} className={wednesdayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setWednesdayAdd,wednesdayAdd, setShowWednesdayAdd,showWednesdayAdd)} className={wednesdayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setWednesdayAdd,wednesdayAdd, setShowWednesdayAdd,showWednesdayAdd)} disabled={editAction || action == true ? true :false} className={wednesdayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setWednesdayAdd,wednesdayAdd, setShowWednesdayAdd,showWednesdayAdd)} className={wednesdayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>
@@ -392,8 +392,8 @@ function StoreHours() {
         <div className='flex flex-row justify-between  w-3/4 mt-4'>
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='ThursdayInfo'>Thursday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setThursdayAdd,thursdayAdd, setShowThursdayAdd, showThursdayAdd)} disabled={editAction || action == true ? true :false} className={thursdayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setThursdayAdd,thursdayAdd, setShowThursdayAdd, showThursdayAdd)} className={thursdayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setThursdayAdd,thursdayAdd, setShowThursdayAdd, showThursdayAdd)} disabled={editAction || action == true ? true :false} className={thursdayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setThursdayAdd,thursdayAdd, setShowThursdayAdd, showThursdayAdd)} className={thursdayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>
@@ -410,8 +410,8 @@ function StoreHours() {
         <div className='flex flex-row justify-between  w-3/4 mt-4' >
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='FridayInfo'>Friday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setFridayAdd,fridayAdd, setShowFridayAdd,showFridayAdd)} disabled={editAction || action == true ? true :false} className={fridayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setFridayAdd,fridayAdd, setShowFridayAdd,showFridayAdd)} className={fridayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setFridayAdd,fridayAdd, setShowFridayAdd,showFridayAdd)} disabled={editAction || action == true ? true :false} className={fridayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setFridayAdd,fridayAdd, setShowFridayAdd,showFridayAdd)} className={fridayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>
@@ -428,8 +428,8 @@ function StoreHours() {
         <div className='flex flex-row justify-between w-3/4 mt-4'>
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='SaturdayInfo'>Saturday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setSaturdayAdd,saturdayAdd, setShowSaturdayAdd,showSaturdayAdd)} disabled={editAction || action == true ? true :false} className={saturdayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setSaturdayAdd,saturdayAdd, setShowSaturdayAdd,showSaturdayAdd)} className={saturdayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setSaturdayAdd,saturdayAdd, setShowSaturdayAdd,showSaturdayAdd)} disabled={editAction || action == true ? true :false} className={saturdayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setSaturdayAdd,saturdayAdd, setShowSaturdayAdd,showSaturdayAdd)} className={saturdayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>
@@ -446,8 +446,8 @@ function StoreHours() {
           <div className='flex flex-row justify-between w-3/4 mt-4'>
             <label className="mb-2 font-medium underline underline-offset-1" htmlFor='SundayInfo'>Sunday Hours</label>
             <div className='flex flex-row '>
-                <button onClick={() =>handleAdd(setSundayAdd,sundayAdd, setShowSundayAdd, showSundayAdd)} disabled={editAction || action == true ? true :false} className={sundayAdd?"hidden":'dark:bg-white dark:text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
-                <button onClick={() =>handleAdd(setSundayAdd,sundayAdd, setShowSundayAdd, showSundayAdd)} className={sundayAdd?' dark:bg-white dark:text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
+                <button onClick={() =>handleAdd(setSundayAdd,sundayAdd, setShowSundayAdd, showSundayAdd)} disabled={editAction || action == true ? true :false} className={sundayAdd?"hidden":'bg-white text-black p-2 rounded-full mr-1'}>{ "Add"}</button>
+                <button onClick={() =>handleAdd(setSundayAdd,sundayAdd, setShowSundayAdd, showSundayAdd)} className={sundayAdd?' bg-white text-black p-2 rounded-full mr-1':"hidden"}>{"Cancel"}</button>
 
                 
             </div>

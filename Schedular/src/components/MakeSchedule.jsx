@@ -6,6 +6,7 @@ import domtoimage from 'dom-to-image';
 import useAxiosPrivate from '../Hooks/useAxiosPrivate';
 function MakeSchedule() {
         const axiosPrivate = useAxiosPrivate()
+        const [showModal, setShowModal] = useState(false);
     //constants for option map
     const availibityArr = ["OPEN","9AM","10AM", "11AM","12PM","1PM", "2PM","3PM","4PM", "5PM", "6PM","7PM", "8PM","CLOSE"]
     //hash table for logic in validation
@@ -575,10 +576,37 @@ function MakeSchedule() {
                 break;
             }
                 retArray[8]= `${shift.hours}|${shift.hoursScheduled}`
-            
+                retArray[9]= shift.employeeId
         })
 
         return retArray;
+    }
+    const handleModalCancel = () =>{
+        setShowModal(false)
+    }
+    const handleModalSave = () =>{
+        handleModalCancel()
+    }
+    const modal = () => {
+
+        return (
+            <div className="fixed h-screen w-screen top-0 flex items-center justify-center z-10 bg-black bg-opacity-50 backdrop-blur-sm">
+                <div className='h-1/2 w-1/2 rounded-md bg-slate-50 '>
+                    <div className='  flex flex-row justify-center'>
+                        <button onClick={() => handleModalSave()}>Save</button>
+                        <button onClick={() => handleModalCancel()}>Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        )
+
+    }
+    const scheduleClick = (id, dayIndex) =>{
+        console.log(id);
+        console.log(dayIndex)
+        setShowModal(true)
+       
     }
     const displayRows = () => {
         
@@ -596,9 +624,8 @@ function MakeSchedule() {
                 <>
                     {displayEmployeeArr.map((employee) => (
                         <div className=  'flex-row flex'>
-                        {employee.map(day => (
-                            
-                            <div className='min-w-[100px] border-2 px-1'>{day}</div>
+                        {employee.filter((day, index) => index != 9 ).map((day, index) => (
+                            <div className='min-w-[100px] border-2 px-1' onClick={() => scheduleClick(employee[9], index)}>{day}</div>
                         ))}
                         </div>
                     ))}
@@ -608,7 +635,8 @@ function MakeSchedule() {
     }
 
     return(
-         <section className=' min-h-screen h-full w-full bg-gray-800 border-gray-700 text-white flex flex-col m-auto items-center justify-center pb-10' >
+        <>
+         <section className='relative min-h-screen h-full w-full bg-gray-800 border-gray-700 text-white flex flex-col m-auto items-center justify-center pb-10' >
             <button onClick={() =>make()}>Make Schedule</button>
             
             <div  className='w-full overflow-x-scroll'>
@@ -634,7 +662,8 @@ function MakeSchedule() {
             
            
             </section>
-            
+            { showModal? modal(): <></>}
+            </>
             )
 }
 

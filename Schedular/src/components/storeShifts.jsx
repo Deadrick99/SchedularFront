@@ -161,7 +161,7 @@ function StoreShifts() {
         )
     }
         return(
-             <section className='border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center'>
+             <section className=' min-h-screen w-full bg-gray-800 border-gray-700 text-white flex flex-col m-auto items-center justify-center'>
             
              <h1 className='mb-6 underline'> Store Shifts</h1>
            <button disabled= {edit? true: false} onClick={() => handleAdd()} className='bg-white rounded-md w-1/2 text-gray-800 my-5'>{!add? "Add" : "Cancel"}</button>

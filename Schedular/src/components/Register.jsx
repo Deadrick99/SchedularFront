@@ -162,14 +162,14 @@ const Register= ()  => {
     }
   return (
     <>
-    {success ? (<section className="border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto 
+    {success ? (<section className=" min-h-screen w-full bg-gray-800 dark:border-gray-700 text-white flex flex-col m-auto 
     items-center justify-center">
         <h1>Registered Succesfully!</h1>
         <p>
             <Link to ="/login">Login</Link>
         </p>
     </section>) :(
-    <section className="border-gray-200  bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto 
+    <section className=" min-h-screen w-full bg-gray-800 border-gray-700 text-white flex flex-col m-auto 
     items-center justify-center">
         
         <p ref= {errMsg} 
@@ -199,7 +199,7 @@ const Register= ()  => {
             userNameFocus && !validUserName ? " text-red-500" : "hidden"
             }
             >
-            3-23 charecters.
+            5-23 charecters.
             </p>
             <label className="mt-2" htmlFor="password">Password:</label>
            
@@ -257,7 +257,7 @@ const Register= ()  => {
             firstNameFocus && !validFirstName ? " text-red-500" : "hidden"
             }
             >
-            0-23 letters.
+            1-23 letters.
             </p>
             <label htmlFor="lastname" className="mt-2">Last Name:</label>
             <input className={validLastName && lastNameFocus? "border-green-500 mb-1 border-4 rounded-sm text-black ": !validLastName && lastNameFocus? "border-red-500 mb-1 border-4 rounded-sm text-black":"mb-1 border-4 rounded-sm text-black"} 
@@ -276,7 +276,7 @@ const Register= ()  => {
             lastNameFocus && !validLastName ? " text-red-500" : "hidden"
             }
             >
-            0-23 letters.
+            1-23 letters.
             </p>
             <label htmlFor="desiredhours" className="mt-2">Desired Hours:</label>
             <input className={validHours && hoursFocus? "border-green-500 mb-1 border-4 rounded-sm text-black ": !validHours && hoursFocus? "border-red-500 mb-1 border-4 rounded-sm text-black":"mb-1 border-4 rounded-sm text-black"}
