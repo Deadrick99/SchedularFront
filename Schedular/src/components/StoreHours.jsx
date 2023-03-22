@@ -332,6 +332,7 @@ function StoreHours() {
         setAction(!action);
     }
   return (
+   
     <section className='border-gray-200 bg-gray-50 min-h-screen w-full dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col m-auto items-center justify-center'>
         <h1 className='text-center font-semibold text-xl mb-8'>Store Hours</h1>
         <div className='flex flex-row justify-between w-3/4'>
@@ -460,12 +461,10 @@ function StoreHours() {
           {displayGrid("Sunday")}
            {addGrid("Sunday")}
         </div>
-        <span className='h-10 w-full screen fixed bottom-0 bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-700
-            flex flex-wrap items-center mx-auto'>
-        <p className='self-center mx-auto text-md dark:text-white'>© William Simmons 2023</p>
-         </span>
+       
        
     </section>
+     
   )
 }
 

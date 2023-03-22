@@ -627,16 +627,12 @@ function MakeSchedule() {
                         
                 </div>
                 {algoDone?
-                 displayRows():<>Hi</>}
+                 displayRows():<></>}
                  </div>
             </div>
             <button onClick={() =>screenShot()}>take screenshot</button>
             
            
-           <span className='h-10 w-full screen fixed bottom-0 bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-700
-            flex flex-wrap items-center mx-auto'>
-        <p className='self-center mx-auto text-md dark:text-white'>© William Simmons 2023</p>
-         </span>
             </section>
             
             )
