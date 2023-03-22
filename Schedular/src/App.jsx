@@ -8,7 +8,7 @@ import RequireAuth from "./components/requireAuth"
 import Availability from './components/Availability'
 import PersistLogin from './components/PersistLogin'
 import StoreHours from './components/StoreHours'
-import StoreShifts from './components/StoreShifts'
+import StoreShifts from './components/storeShifts'
 import MakeSchedule from './components/MakeSchedule'
 function App() {
   
