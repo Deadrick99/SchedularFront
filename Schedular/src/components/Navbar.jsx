@@ -45,6 +45,9 @@ function Navbar() {
             <li  className= {auth?.roles?.find( role => role ==2652)? "" :"hidden"}>
               <Link to="/storeshifts" onClick ={toggleNav} className = "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Store Shifts</Link>
             </li>
+            <li  className= {auth?.roles?.find( role => role ==2652)? "" :"hidden"}>
+              <Link to="/makeschedule" onClick ={toggleNav} className = "block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Make Schedule</Link>
+            </li>
             <li>
              <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Release a Shift</a>
             </li>
