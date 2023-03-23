@@ -598,7 +598,7 @@ function Availability() {
                 <button onClick={handleWednesdayEdit} className={wednesdayEdit  ? "disabled opacity-70":""} type ="button"><MdEdit/></button>
                 </div>
                 <div id={'WednesdayStart'} className={ wednesdayEdit || !availSet ? 'flex flex-col': "hidden"}  >
-                     <label htmlFor= {`Wednesdaystart`} className="mb-2 " >Monday Start Time:</label>
+                     <label htmlFor= {`Wednesdaystart`} className="mb-2 " >Wednesday Start Time:</label>
                     <select id={`Wednesdaystart`} defaultValue={"DEFAULT"} onChange={(e)=> setWednesdayStart(e.target.value)} onFocus={() => setWednesdayFocus(true)} onBlur={() => setWednesdayFocus(false)}
                     className={validWednesday && wednesdayFocus ? "border-green-500 text-black mb-1 border-4 rounded-sm": 
                     !validWednesday && wednesdayFocus? "border-red-500 text-black mb-1 border-4 rounded-sm":" text-black mb-1 border-4 rounded-sm" }>
@@ -788,7 +788,7 @@ function Availability() {
                 <h4>Sunday End Time:</h4>
                 <p>{sundayEnd}</p>
                 </div>
-               <button className={availSet ? "hidden" :'rounded-sm bg-white text-gray-800 text-center'} type = "submit">Submit</button>
+               <button className={availSet ? "hidden" :'rounded-sm bg-white text-gray-800 text-center'} value="Submit" type = "submit">Submit</button>
                 
             </form>
             
