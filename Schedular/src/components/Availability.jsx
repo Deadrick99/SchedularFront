@@ -267,7 +267,7 @@ function Availability() {
             async function fetchData(){
                 const id = localStorage.getItem("id")
                 console.log(id)
-                const user = await axiosPrivate.get(`https://schedularback-production.up.railway.app/employees/${id}`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
+                const user = await axiosPrivate.get(`https://schedularback-production.up.railway.app/employees/${id}/`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
                 console.log(user)
                 setAvailSet( user.data.availSet)
                 console.log(user.data.availSet)
@@ -277,7 +277,7 @@ function Availability() {
                     return
                 }
                 
-                availArr = await axiosPrivate.get (`https://schedularback-production.up.railway.app/employeeAvail/${id}`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
+                availArr = await axiosPrivate.get (`https://schedularback-production.up.railway.app/employeeAvail/${id}/`,{ headers:{"Content-type":"application/json"}, withCredentials:true})
                 console.log(availArr)
                 setTimes(availArr.data)
                 setIsLoading(false)
@@ -296,7 +296,7 @@ function Availability() {
         submitFriday()
         submitSaturday()
         submitSunday() 
-        await axiosPrivate.patch(`https://schedularback-production.up.railway.app/employees`,JSON.stringify({ id:id,availSet:true}), { headers:{"Content-type":"application/json"}, withCredentials:true})
+        await axiosPrivate.patch(`https://schedularback-production.up.railway.app/employees/`,JSON.stringify({ id:id,availSet:true}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setAvailSet(true)
     }
     //functions to set edit to true
@@ -335,12 +335,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Monday",startTime:mondayStart, endTime:mondayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setMondayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Monday",startTime:mondayStart, endTime:mondayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
@@ -361,12 +361,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Tuesday",startTime:tuesdayStart, endTime:tuesdayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setTuesdayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Tuesday",startTime:tuesdayStart, endTime:tuesdayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
@@ -386,12 +386,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Wednesday",startTime:wednesdayStart, endTime:wednesdayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setWednesdayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Wednesday",startTime:wednesdayStart, endTime:wednesdayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
@@ -411,12 +411,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Thursday",startTime:thursdayStart, endTime:thursdayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setThursdayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Thursday",startTime:thursdayStart, endTime:thursdayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
@@ -436,12 +436,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Friday",startTime:fridayStart, endTime:fridayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setFridayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Friday",startTime:fridayStart, endTime:fridayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
@@ -461,12 +461,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Saturday",startTime:saturdayStart, endTime:saturdayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setSaturdayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Saturday",startTime:saturdayStart, endTime:saturdayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
@@ -486,12 +486,12 @@ function Availability() {
                 id = avail.id;
             }
         })
-        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.patch("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Sunday",startTime:sundayStart, endTime:sundayEnd,id:id}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         setSundayEdit(false)
         }
         else{
-        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail",
+        await axiosPrivate.post("https://schedularback-production.up.railway.app/employeeAvail/",
         JSON.stringify({day:"Sunday",startTime:sundayStart, endTime:sundayEnd,employee:empId}), { headers:{"Content-type":"application/json"}, withCredentials:true})
         }
         }
