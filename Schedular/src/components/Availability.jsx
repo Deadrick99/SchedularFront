@@ -287,6 +287,7 @@ function Availability() {
         },[])
     // handles submit of the form 
     const handleSubmit = (e) =>{
+        e.preventDefault()
         submitMonday()
         submitTuesday()
         submitWednesday()
