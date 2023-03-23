@@ -286,7 +286,7 @@ function Availability() {
             
         },[])
     // handles submit of the form 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = (e) =>{
         const id = localStorage.getItem("id")
         e.preventDefault();
         submitMonday()
@@ -296,8 +296,11 @@ function Availability() {
         submitFriday()
         submitSaturday()
         submitSunday() 
-        await axiosPrivate.patch(`https://schedularback-production.up.railway.app/employees`,JSON.stringify({ id:id,availSet:true}), { headers:{"Content-type":"application/json"}, withCredentials:true})
+        setDBAvailSet()
         setAvailSet(true)
+    }
+    const setDBAvailSet= async ()=>{
+        await axiosPrivate.patch(`https://schedularback-production.up.railway.app/employees`,JSON.stringify({ id:id,availSet:true}), { headers:{"Content-type":"application/json"}, withCredentials:true})
     }
     //functions to set edit to true
     const handleMondayEdit =()=>{
